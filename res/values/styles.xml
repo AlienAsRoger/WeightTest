@@ -1,0 +1,53 @@
+<resources>
+
+
+    <style name="custom_edit_field">
+        <item name="android:typeface">normal</item>
+        <item name="android:paddingLeft">14dip</item>
+        <item name="android:paddingTop">0dip</item>
+        <item name="android:paddingBottom">0dip</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+    <style name="DashboardItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <!--<item name="android:background">@drawable/dashboard_item</item>-->
+    </style>
+
+
+    <style name="DashboardItemText" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+<!--    <item name="android:paddingBottom">1dip</item>-->
+
+    <style name="DefaultText" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">normal</item>
+
+    </style>
+
+    <style name="spinnerStyleDropDown" parent="DefaultText">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="spinnerText" parent="DefaultText">
+        <item name="android:textColor">@color/hint_text</item>
+    </style>
+
+
+	<style name="GamePanelButton">
+		<item name="android:layout_weight">1</item>
+	</style>
+
+	<style name="CapturedPiece">
+		<item name="android:layout_weight">1</item>
+	</style>
+
+</resources>
