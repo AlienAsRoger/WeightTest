@@ -99,13 +99,25 @@ public final class R {
         public static final int captured_wr=0x7f02000b;
         public static final int ic_action_done=0x7f02000c;
         public static final int shifted_image=0x7f02000d;
-        public static final int wp_six=0x7f02000e;
+        public static final int tap_1=0x7f02000e;
+        public static final int tap_2=0x7f02000f;
+        public static final int tap_3=0x7f020010;
+        public static final int tap_4=0x7f020011;
+        public static final int tap_5=0x7f020012;
+        public static final int tap_6=0x7f020013;
+        public static final int wp_six=0x7f020014;
     }
     public static final class id {
+        public static final int addBtn=0x7f070006;
         public static final int blackCapturedPieces=0x7f070003;
+        public static final int changeView=0x7f07000a;
         public static final int controlButtonsPanel=0x7f070000;
         public static final int fastForwardBtn=0x7f070001;
         public static final int movesListView=0x7f070004;
+        public static final int removeBtn=0x7f070007;
+        public static final int seekView=0x7f070009;
+        public static final int weightView=0x7f070008;
+        public static final int weightView2=0x7f070005;
         public static final int whiteCapturedPieces=0x7f070002;
     }
     public static final class layout {
