@@ -42,7 +42,7 @@
     </style>
 
 
-	<style name="GamePanelButton">
+	<style name="GamePanelButton" parent="android:style/Widget.ImageButton">
 		<item name="android:layout_weight">1</item>
 	</style>
 
