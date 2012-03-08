@@ -42,27 +42,32 @@ public class GamePanelTestActivity extends Activity implements View.OnClickListe
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.game_panel);
+        setContentView(R.layout.game_panel2);
         whiteCapturedPieces = (LinearLayout) findViewById(R.id.whiteCapturedPieces);
         blackCapturedPieces = (LinearLayout) findViewById(R.id.blackCapturedPieces);
 //		whiteCapturedPieces.setWeightSum(WEIGHT_SUM);
 //		blackCapturedPieces.setWeightSum(WEIGHT_SUM);
         movesListView = (ListView) findViewById(R.id.movesListView);
 
-        weightView = (LinearLayout) findViewById(R.id.weightView);
-        seekView = (LinearLayout) findViewById(R.id.seekView);
-        changeView = (LinearLayout) findViewById(R.id.changeView);
+//        weightView = (LinearLayout) findViewById(R.id.weightView);
+//        seekView = (LinearLayout) findViewById(R.id.seekView);
+//        changeView = (LinearLayout) findViewById(R.id.changeView);
         
         
-        findViewById(R.id.addBtn).setOnClickListener(this);
-        findViewById(R.id.removeBtn).setOnClickListener(this);
+//        findViewById(R.id.addBtn).setOnClickListener(this);
+//        findViewById(R.id.removeBtn).setOnClickListener(this);
 
         List<String> itemList = new ArrayList<String>();
 
-        itemList.add("1111");
-        itemList.add("1111");
-        itemList.add("1111");
-        itemList.add("1111");
+		itemList.add("42. Bf3  Ke7");
+		itemList.add("43. Nd5+  Nxd5");
+		itemList.add("44. exd5  Ke7");
+		itemList.add("44. exd5  Ke7");
+		itemList.add("44. exd5  Ke7");
+		itemList.add("44. exd5  Ke7");
+		itemList.add("44. exd5  Ke7");
+		itemList.add("44. exd5  Ke7");
+		itemList.add("44. exd5  Ke7");
 
         movesListView.setAdapter(new MovesAdapter(itemList));
 
@@ -96,27 +101,27 @@ public class GamePanelTestActivity extends Activity implements View.OnClickListe
         addItems(blackCapturedPieces, R.drawable.captured_wp, 8, 1.0f);
         addItems(blackCapturedPieces, R.drawable.captured_wk, 1, 1.0f);
         
-        helper = new WeightHelper();
-
-
-
-        weightView.setWeightSum(100);
-
-//        for(int k = 0; k<ITEMS_CNT; k++){
-        currentItemsCnt = 6;
-            addWeightElement();
-            addWeightElement();
-            addWeightElement();
-            addWeightElement();
-            addWeightElement();
-            addWeightElement();
-//        }
-
-        total = new TextView(this);
-        total.setTextColor(Color.RED);
-        total.setText("total weightSum = " + helper.getTotalWeightSum());
-        changeView.addView(total,0);
-        weightView.setWeightSum(helper.getTotalWeightSum());
+//        helper = new WeightHelper();
+//
+//
+//
+//        weightView.setWeightSum(100);
+//
+////        for(int k = 0; k<ITEMS_CNT; k++){
+//        currentItemsCnt = 6;
+//            addWeightElement();
+//            addWeightElement();
+//            addWeightElement();
+//            addWeightElement();
+//            addWeightElement();
+//            addWeightElement();
+////        }
+//
+//        total = new TextView(this);
+//        total.setTextColor(Color.RED);
+//        total.setText("total weightSum = " + helper.getTotalWeightSum());
+//        changeView.addView(total,0);
+//        weightView.setWeightSum(helper.getTotalWeightSum());
     }
 
     private void addWeightElement(){
