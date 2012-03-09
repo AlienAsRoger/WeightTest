@@ -7,12 +7,6 @@ package com.developer4droid.weight_test.views;
  * @created at: 08.03.12 8:00
  */
 public class PieceItem {
-	public static final int Q = 0;
-	public static final int R = 1;
-	public static final int B = 2;
-	public static final int N = 3;
-	public static final int P = 4;
-	public static final int K = 5;
 
 	private int code;
 

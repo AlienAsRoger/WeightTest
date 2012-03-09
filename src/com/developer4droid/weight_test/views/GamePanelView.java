@@ -31,28 +31,48 @@ public class GamePanelView extends LinearLayout {
 	private int[] whitePieceDrawableIds;
 	private int[] blackPieceDrawableIds;
 
-//	Ids for pieces
+	//	Ids for pieces
 	public static final int PAWN_ID = 0;
 	public static final int KNIGHT_ID = 1;
 	public static final int BISHOP_ID = 2;
 	public static final int ROOK_ID = 3;
 	public static final int QUEEN_ID = 4;
 	public static final int KING_ID = 5;
+	public static final int EMPTY_ID = 6;
 
-//	if (piece == 0)
-//	w_pawns--;
-//	if (piece == 1)
-//	w_knights--;
-//	if (piece == 2)
-//	w_bishops--;
-//	if (piece == 3)
-//	w_rooks--;
-//	if (piece == 4)
-//	w_queen = 0;
 
-	
-//	prefixes
-	public static final int FRAME_PREFIX = 0x00001000;
+	//	PieceItem Count on board
+	private int pieceItemCounts[] = new int[]{
+			8,
+			2,
+			2,
+			2,
+			1,
+			1
+	};
+	private int whiteSavedPiecesCount[] = new int[]{
+			8,
+			2,
+			2,
+			2,
+			1,
+			1
+	};
+	private int blackSavedPiecesCount[] = new int[]{
+			8,
+			2,
+			2,
+			2,
+			1,
+			1
+	};
+
+	private int whiteAlivePiecesCount[] = new int[6];
+	private int blackAlivePiecesCount[] = new int[6];
+
+	//	prefixes
+	public static final int WHITE_FRAME_PREFIX = 0x00001000;
+	public static final int BLACK_FRAME_PREFIX = 0x00004000;
 
 
 	public GamePanelView(Context context) {
@@ -87,10 +107,10 @@ public class GamePanelView extends LinearLayout {
 		pieceIds = getResources().getIntArray(R.array.pieces_ids);
 
 		controlsLayout = new LinearLayout(getContext());
-		int paddingLeft = (int) (10*metrics.density);
-		int paddingTop = (int) (12*metrics.density);
-		int paddingRight = (int) (10*metrics.density);
-		int paddingBottom = (int) (12*metrics.density);
+		int paddingLeft = (int) (10 * metrics.density);
+		int paddingTop = (int) (20 * metrics.density);
+		int paddingRight = (int) (10 * metrics.density);
+		int paddingBottom = (int) (5 * metrics.density);
 		controlsLayout.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
 
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -120,7 +140,7 @@ public class GamePanelView extends LinearLayout {
 		pieceParams.weight = 3;
 		piecesLayout.setLayoutParams(pieceParams);
 		piecesLayout.setOrientation(VERTICAL);
-		piecesLayout.setPadding(7, 1, 0, 1);
+		piecesLayout.setPadding(7, 1, 0, 2);
 		piecesLayout.setGravity(Gravity.CENTER);
 
 		LinearLayout whiteCapturedPieces = new LinearLayout(getContext());
@@ -134,7 +154,6 @@ public class GamePanelView extends LinearLayout {
 		blackCapturedPieces.setPadding(1, 1, 1, 1);
 		blackCapturedPieces.setLayoutParams(params);
 		blackCapturedPieces.setGravity(Gravity.LEFT);
-
 		piecesLayout.addView(blackCapturedPieces);
 
 		infoLayout.addView(piecesLayout);
@@ -184,55 +203,37 @@ public class GamePanelView extends LinearLayout {
 				R.drawable.captured_bk
 		};
 
-		addItems(whiteCapturedPieces, true, 1, 1.0f, QUEEN_ID );
-		addItems(whiteCapturedPieces, true, 2, 1.0f, ROOK_ID  );
-		addItems(whiteCapturedPieces, true, 2, 1.0f, BISHOP_ID);
-		addItems(whiteCapturedPieces, true, 2, 1.0f, KNIGHT_ID);
-		addItems(whiteCapturedPieces, true, 8, 1.0f, PAWN_ID  );
-		addItems(whiteCapturedPieces, true, 1, 1.0f, KING_ID  );
+		addItems(whiteCapturedPieces, true, 1.0f, QUEEN_ID);
+		addItems(whiteCapturedPieces, true, 1.0f, ROOK_ID);
+		addItems(whiteCapturedPieces, true, 1.0f, BISHOP_ID);
+		addItems(whiteCapturedPieces, true, 1.0f, KNIGHT_ID);
+		addItems(whiteCapturedPieces, true, 1.0f, PAWN_ID);
+		addItems(whiteCapturedPieces, true, 1.0f, KING_ID);
 
-		addItems(blackCapturedPieces, false, 1, 1.0f, QUEEN_ID );
-		addItems(blackCapturedPieces, false, 2, 1.0f, ROOK_ID  );
-		addItems(blackCapturedPieces, false, 2, 1.0f, BISHOP_ID);
-		addItems(blackCapturedPieces, false, 2, 1.0f, KNIGHT_ID);
-		addItems(blackCapturedPieces, false, 8, 1.0f, PAWN_ID  );
-		addItems(blackCapturedPieces, false, 1, 1.0f, KING_ID  );
+		addItems(blackCapturedPieces, false, 1.0f, QUEEN_ID);
+		addItems(blackCapturedPieces, false, 1.0f, ROOK_ID);
+		addItems(blackCapturedPieces, false, 1.0f, BISHOP_ID);
+		addItems(blackCapturedPieces, false, 1.0f, KNIGHT_ID);
+		addItems(blackCapturedPieces, false, 1.0f, PAWN_ID);
+		addItems(blackCapturedPieces, false, 1.0f, KING_ID);
 
 		movesListView.setSelection(movesListView.getAdapter().getCount() - 1);
 	}
 
-	private int getFrameIdByCode(PieceItem pieceItem){
-		String strCode = pieceItem.getStringCode();
-		pieceItem.setWhite(strCode.substring(0, 1).equals("w"));
-
-		String pieceCode = strCode.substring(1, 2);
-		int frameId = 0;
-		if(pieceCode.equals("q")){
-			frameId = FRAME_PREFIX + pieceIds[QUEEN_ID];
-		}else if (pieceCode.equals("r")){
-			frameId = FRAME_PREFIX + pieceIds[ROOK_ID];
-		}else if (pieceCode.equals("b")){
-			frameId = FRAME_PREFIX + pieceIds[BISHOP_ID];
-		}else if (pieceCode.equals("n")){
-			frameId = FRAME_PREFIX + pieceIds[KNIGHT_ID];
-		}else if (pieceCode.equals("p")){
-			frameId = FRAME_PREFIX + pieceIds[PAWN_ID];
-		}else if (pieceCode.equals("k")){
-			frameId = FRAME_PREFIX + pieceIds[KING_ID];
-		}
-		return frameId;
+	private int getFramePrefix(boolean isWhite) {
+		return isWhite ? WHITE_FRAME_PREFIX : BLACK_FRAME_PREFIX;
 	}
 
-	public void capturePiece(PieceItem pieceItem) {
-		showPiece(true, pieceItem);
+	public void capturePiece(boolean isWhite,int pieceId) {
+		showPiece(true, isWhite, pieceId);
 	}
 
-	public void restorePiece(PieceItem pieceItem) {
-		showPiece(false, pieceItem);
+	public void restorePiece(boolean isWhite, int pieceId) {
+		showPiece(false, isWhite, pieceId);
 	}
 
-	private void showPiece(boolean show, PieceItem pieceItem) {
-		int frameId = getFrameIdByCode(pieceItem);
+	private void showPiece(boolean show, boolean isWhite, int pieceId) {
+		int frameId = getFramePrefix(isWhite) + pieceIds[pieceId];
 
 		FrameLayout capturedFrame = (FrameLayout) findViewById(frameId);
 
@@ -243,20 +244,20 @@ public class GamePanelView extends LinearLayout {
 		int maxLevel = storedPieceItem.getLayersCnt();
 		int currentLevel = storedPieceItem.getCurrentLevel();
 
-		if(show){
-			if(currentLevel < maxLevel){
+		if (show) {
+			if (currentLevel < maxLevel) {
 				currentLevel++;
 			}
-		}else{
-			if(currentLevel > 0){
+		} else {
+			if (currentLevel > 0) {
 				currentLevel--;
 			}
 		}
 		storedPieceItem.setCurrentLevel(currentLevel);
 		LayerDrawable pieceDrawable;
-		if(storedPieceItem.isWhite()){
+		if (storedPieceItem.isWhite()) {
 			pieceDrawable = createImageDrawable(currentLevel, whitePieceDrawableIds[storedPieceItem.getPieceId()]);
-		}else{
+		} else {
 			pieceDrawable = createImageDrawable(currentLevel, blackPieceDrawableIds[storedPieceItem.getPieceId()]);
 		}
 		imageView.setImageDrawable(pieceDrawable);
@@ -266,8 +267,7 @@ public class GamePanelView extends LinearLayout {
 	}
 
 
-
-	private LayerDrawable createImageDrawable(int layersCnt, int pieceDrawableId){
+	private LayerDrawable createImageDrawable(int layersCnt, int pieceDrawableId) {
 		Drawable[] layers = new Drawable[layersCnt];
 
 		for (int j = 0; j < layersCnt; j++) {
@@ -282,7 +282,8 @@ public class GamePanelView extends LinearLayout {
 		return pieceDrawable;
 	}
 
-	private void addItems(LinearLayout viewGroup, boolean isWhite, int layersCnt, float itemWeight, int pieceId) {
+	private void addItems(LinearLayout viewGroup, boolean isWhite, /*int layersCnt, */float itemWeight, int pieceId) {
+		int layersCnt = pieceItemCounts[pieceId];
 		// Add background image to get correct weights
 		ImageView imageView = new ImageView(getContext());
 		imageView.setAdjustViewBounds(false);
@@ -292,9 +293,9 @@ public class GamePanelView extends LinearLayout {
 				ViewGroup.LayoutParams.WRAP_CONTENT);
 
 		LayerDrawable pieceDrawable;
-		if(isWhite){
+		if (isWhite) {
 			pieceDrawable = createImageDrawable(layersCnt, whitePieceDrawableIds[pieceId]);
-		}else{
+		} else {
 			pieceDrawable = createImageDrawable(layersCnt, blackPieceDrawableIds[pieceId]);
 		}
 
@@ -303,11 +304,11 @@ public class GamePanelView extends LinearLayout {
 
 		// crate pieceItem
 		PieceItem pieceItem = new PieceItem();
-		pieceItem.setCode(PieceItem.P);
-		pieceItem.setWhite(true);
+		pieceItem.setCode(pieceId);
+		pieceItem.setWhite(isWhite);
 		pieceItem.setPieceId(pieceId);
 		pieceItem.setLayersCnt(layersCnt);
-		pieceItem.setPieceFrameId(FRAME_PREFIX +  pieceIds[pieceId]);
+		pieceItem.setPieceFrameId(getFramePrefix(isWhite) + pieceIds[pieceId]);
 
 
 		imageView.setVisibility(INVISIBLE);
@@ -340,6 +341,14 @@ public class GamePanelView extends LinearLayout {
 		viewGroup.addView(frame);
 	}
 
+	public int[] getPieceItemCounts() {
+		return pieceItemCounts;
+	}
+
+	public int getPieceItemCount(int id) {
+		return pieceItemCounts[id];
+	}
+
 	private int shiftSize = 7;
 
 	private void shiftLayer(LayerDrawable pieceDrawable, int level) {
@@ -352,7 +361,46 @@ public class GamePanelView extends LinearLayout {
 		((BitmapDrawable) pieceDrawable.getDrawable(level)).setGravity(Gravity.LEFT | Gravity.TOP);
 	}
 
+	public void dropAlivePieces(){
+		for (int i = 0, cnt = whiteAlivePiecesCount.length; i < cnt; i++) {
+			whiteAlivePiecesCount[i] = 0;
+		}
 
+		for (int i = 0, cnt = blackAlivePiecesCount.length; i < cnt; i++) {
+			blackAlivePiecesCount[i] = 0;
+		}
+	}
+
+	public void addAlivePiece(boolean isWhite, int pieceId) {
+		if(pieceId == EMPTY_ID)
+			return;
+		if(isWhite){
+			whiteAlivePiecesCount[pieceId]++;
+		}else{
+			blackAlivePiecesCount[pieceId]++;
+		}
+	}
+
+	public void updateCapturedPieces() {
+		// iterate through alive arrays
+		for (int i = 0, cnt = whiteAlivePiecesCount.length; i < cnt; i++) {
+			int alivePieceCnt = whiteAlivePiecesCount[i];
+			int diff = pieceItemCounts[i] - alivePieceCnt;
+			for (int j=0;j<diff; j++){
+				capturePiece(true, i);
+				whiteSavedPiecesCount[i]--;
+			}
+		}
+
+		for (int i = 0, cnt = blackAlivePiecesCount.length; i < cnt; i++) {
+			int alivePieceCnt = blackAlivePiecesCount[i];
+			int diff = pieceItemCounts[i] - alivePieceCnt;
+			for (int j=0;j<diff; j++){
+				capturePiece(true, i);
+				blackSavedPiecesCount[i]--;
+			}
+		}
+	}
 	private class MovesAdapter extends ItemsAdapter<String> {
 		public MovesAdapter(Context context, List<String> itemList) {
 			super(context, itemList);

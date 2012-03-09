@@ -31,43 +31,77 @@ public class GamePanelActivity extends Activity implements View.OnClickListener,
 		getWindow().setFormat(PixelFormat.RGBA_8888);
 	}
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.game_panel);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.game_panel);
 		gamePanel = (GamePanelView) findViewById(R.id.gamePanel);
-		
-		
+
+
 		findViewById(R.id.captureBtn).setOnClickListener(this);
 		findViewById(R.id.restoreBtn).setOnClickListener(this);
 		whiteSpinner = (Spinner) findViewById(R.id.whiteCaptures);
 		whiteSpinner.setOnItemSelectedListener(this);
 		blackSpinner = (Spinner) findViewById(R.id.blackCaptures);
-    }
+	}
 
 
 	@Override
 	public void onClick(View view) {
-		if(view.getId() == R.id.captureBtn){
+		if (view.getId() == R.id.captureBtn) {
 			String item = (String) whiteSpinner.getSelectedItem();
 
 			PieceItem pieceItem = new PieceItem();
 			pieceItem.setStringCode(item); //Code(PieceItem.P);
 
-			gamePanel.capturePiece(pieceItem);
-		} else if(view.getId() == R.id.restoreBtn){
+			String strCode = pieceItem.getStringCode();
+			boolean isWhite = pieceItem.isWhite();
+
+			int pieceId = 0;
+			isWhite = !strCode.substring(0, 1).equals("w");
+			String pieceCode = strCode.substring(1, 2);
+			if (pieceCode.equals("q")) {
+				pieceId = GamePanelView.QUEEN_ID;
+			} else if (pieceCode.equals("r")) {
+				pieceId = GamePanelView.ROOK_ID;
+			} else if (pieceCode.equals("b")) {
+				pieceId = GamePanelView.BISHOP_ID;
+			} else if (pieceCode.equals("n")) {
+				pieceId = GamePanelView.KNIGHT_ID;
+			} else if (pieceCode.equals("p")) {
+				pieceId = GamePanelView.PAWN_ID;
+			} else if (pieceCode.equals("k")) {
+				pieceId = GamePanelView.KING_ID;
+			}
+
+			gamePanel.capturePiece(isWhite, pieceId);
+		} else if (view.getId() == R.id.restoreBtn) {
 			String item = (String) whiteSpinner.getSelectedItem();
 
-			PieceItem pieceItem = new PieceItem();
-			pieceItem.setStringCode(item); //Code(PieceItem.P);
-			gamePanel.restorePiece(pieceItem);
+			int pieceId = 0;
+			boolean isWhite = !item.substring(0, 1).equals("w");
+			String pieceCode = item.substring(1, 2);
+			if (pieceCode.equals("q")) {
+				pieceId = GamePanelView.QUEEN_ID;
+			} else if (pieceCode.equals("r")) {
+				pieceId = GamePanelView.ROOK_ID;
+			} else if (pieceCode.equals("b")) {
+				pieceId = GamePanelView.BISHOP_ID;
+			} else if (pieceCode.equals("n")) {
+				pieceId = GamePanelView.KNIGHT_ID;
+			} else if (pieceCode.equals("p")) {
+				pieceId = GamePanelView.PAWN_ID;
+			} else if (pieceCode.equals("k")) {
+				pieceId = GamePanelView.KING_ID;
+			}
+			gamePanel.restorePiece(isWhite,pieceId);
 		}
 	}
 
 	@Override
 	public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 		String item = (String) adapterView.getItemAtPosition(i);
-		
-		
+
+
 	}
 
 	@Override
