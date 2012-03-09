@@ -9,105 +9,106 @@ package com.developer4droid.weight_test;
 
 public final class R {
     public static final class array {
-        public static final int black_pieces=0x7f040001;
-        public static final int pieces_ids=0x7f040002;
-        public static final int white_pieces=0x7f040000;
+        public static final int black_pieces=0x7f050002;
+        public static final int pieces_ids=0x7f050000;
+        public static final int white_pieces=0x7f050001;
     }
     public static final class attr {
     }
     public static final class color {
-        public static final int any_button_stroke=0x7f050002;
-        public static final int blue=0x7f050022;
+        public static final int any_button_stroke=0x7f040002;
+        public static final int blue=0x7f040023;
         /**     <color name="blue_button_inside_shadow">#7F000000</color>
          */
-        public static final int blue_button_inside_shadow=0x7f05003b;
-        public static final int blue_button_reversed_inside_stroke=0x7f050039;
+        public static final int blue_button_inside_shadow=0x7f04003c;
+        public static final int blue_button_reversed_inside_stroke=0x7f04003a;
         /** <color name="blue_emboss_low_right">#FF63a62d</color>
          */
-        public static final int blue_emboss_top_left=0x7f050037;
-        public static final int dark_blue=0x7f050019;
-        public static final int dark_light=0x7f050017;
-        public static final int dark_orange=0x7f050015;
-        public static final int dark_orange_1=0x7f050016;
-        public static final int dashboard_button=0x7f050021;
+        public static final int blue_emboss_top_left=0x7f040038;
+        public static final int dark_blue=0x7f04001a;
+        public static final int dark_light=0x7f040018;
+        public static final int dark_orange=0x7f040016;
+        public static final int dark_orange_1=0x7f040017;
+        public static final int dashboard_button=0x7f040022;
         /** <color name="shadow_border">#FF183b94</color>
          */
-        public static final int dashboard_item_default=0x7f050027;
-        public static final int dashboard_item_stroke=0x7f050028;
+        public static final int dashboard_item_default=0x7f040028;
+        public static final int dashboard_item_stroke=0x7f040029;
         /** <color name="dashboard_item_stroke">#FFFFFFFF</color>
          */
-        public static final int dashboard_item_stroke_2=0x7f050029;
-        public static final int disabled=0x7f05002f;
-        public static final int f_dark_blue=0x7f05001d;
-        public static final int f_dark_blue_1=0x7f05001f;
-        public static final int f_dark_grey=0x7f05001b;
-        public static final int f_light_blue=0x7f05001c;
-        public static final int f_light_blue_1=0x7f05001e;
-        public static final int f_light_grey=0x7f05001a;
-        public static final int f_stroke=0x7f050020;
-        public static final int game_board_back=0x7f050034;
+        public static final int dashboard_item_stroke_2=0x7f04002a;
+        public static final int disabled=0x7f040030;
+        public static final int f_dark_blue=0x7f04001e;
+        public static final int f_dark_blue_1=0x7f040020;
+        public static final int f_dark_grey=0x7f04001c;
+        public static final int f_light_blue=0x7f04001d;
+        public static final int f_light_blue_1=0x7f04001f;
+        public static final int f_light_grey=0x7f04001b;
+        public static final int f_stroke=0x7f040021;
+        public static final int game_board_back=0x7f040035;
         /** <color name="dark_orange">#FFa94a14</color>
          */
-        public static final int glow_border=0x7f050024;
-        public static final int glow_border2=0x7f050025;
+        public static final int glow_border=0x7f040025;
+        public static final int glow_border2=0x7f040026;
+        public static final int gray_button_stroke=0x7f040003;
         /** Green
          */
-        public static final int green_button=0x7f05000f;
-        public static final int green_button_p=0x7f050010;
-        public static final int green_button_pressed_stroke_1=0x7f050013;
-        public static final int green_button_pressed_stroke_2=0x7f050014;
+        public static final int green_button=0x7f040010;
+        public static final int green_button_p=0x7f040011;
+        public static final int green_button_pressed_stroke_1=0x7f040014;
+        public static final int green_button_pressed_stroke_2=0x7f040015;
         /** <color name="orange_button_stroke">#23FFFFFF</color>
          */
-        public static final int green_emboss_low_right=0x7f050011;
-        public static final int green_emboss_top_left=0x7f050012;
+        public static final int green_emboss_low_right=0x7f040012;
+        public static final int green_emboss_top_left=0x7f040013;
         /** Grey 
          */
-        public static final int grey_button=0x7f050009;
-        public static final int grey_button_p=0x7f05000a;
-        public static final int grey_button_pressed_stroke_1=0x7f05000d;
-        public static final int grey_button_pressed_stroke_2=0x7f05000e;
+        public static final int grey_button=0x7f04000a;
+        public static final int grey_button_p=0x7f04000b;
+        public static final int grey_button_pressed_stroke_1=0x7f04000e;
+        public static final int grey_button_pressed_stroke_2=0x7f04000f;
         /** <color name="grey_button_stroke">#23747474</color>
          */
-        public static final int grey_emboss_low_right=0x7f05000b;
-        public static final int grey_emboss_top_left=0x7f05000c;
-        public static final int hint_text=0x7f050000;
-        public static final int light_blue=0x7f050018;
-        public static final int list_pressed_1=0x7f050030;
-        public static final int list_pressed_2=0x7f050031;
-        public static final int orange=0x7f050023;
+        public static final int grey_emboss_low_right=0x7f04000c;
+        public static final int grey_emboss_top_left=0x7f04000d;
+        public static final int hint_text=0x7f040000;
+        public static final int light_blue=0x7f040019;
+        public static final int list_pressed_1=0x7f040031;
+        public static final int list_pressed_2=0x7f040032;
+        public static final int orange=0x7f040024;
         /** Orange
 <color name="orange_button_stroke">#23FFFFFF</color>
          */
-        public static final int orange_button=0x7f050003;
-        public static final int orange_button_p=0x7f050004;
-        public static final int orange_button_pressed_stroke_1=0x7f050007;
-        public static final int orange_button_pressed_stroke_2=0x7f050008;
-        public static final int orange_emboss_low_right=0x7f050005;
-        public static final int orange_emboss_top_left=0x7f050006;
+        public static final int orange_button=0x7f040004;
+        public static final int orange_button_p=0x7f040005;
+        public static final int orange_button_pressed_stroke_1=0x7f040008;
+        public static final int orange_button_pressed_stroke_2=0x7f040009;
+        public static final int orange_emboss_low_right=0x7f040006;
+        public static final int orange_emboss_top_left=0x7f040007;
         /** Good
 <color name="shadow_border">#27000000</color>
          */
-        public static final int shadow_border=0x7f050026;
+        public static final int shadow_border=0x7f040027;
         /** Buttons
          */
-        public static final int stroke_shadow=0x7f050001;
+        public static final int stroke_shadow=0x7f040001;
         /** Toggle buttons
          */
-        public static final int toggle_button_1=0x7f050032;
+        public static final int toggle_button_1=0x7f040033;
         /** <color name="toggle_button_1">#FF3d3d3d</color>
          */
-        public static final int toggle_button_2=0x7f050033;
+        public static final int toggle_button_2=0x7f040034;
         /** <color name="toggle_button_inside_stroke">#FF191919</color>
          */
-        public static final int toggle_button_inside_stroke=0x7f050038;
-        public static final int toggle_button_outer_shadow=0x7f05003a;
-        public static final int toggle_button_p_1=0x7f050035;
-        public static final int toggle_button_p_2=0x7f050036;
-        public static final int top_bar_1=0x7f05002c;
-        public static final int top_bar_2=0x7f05002d;
-        public static final int top_bar_3=0x7f05002e;
-        public static final int top_bar_stroke_1=0x7f05002a;
-        public static final int top_bar_stroke_2=0x7f05002b;
+        public static final int toggle_button_inside_stroke=0x7f040039;
+        public static final int toggle_button_outer_shadow=0x7f04003b;
+        public static final int toggle_button_p_1=0x7f040036;
+        public static final int toggle_button_p_2=0x7f040037;
+        public static final int top_bar_1=0x7f04002d;
+        public static final int top_bar_2=0x7f04002e;
+        public static final int top_bar_3=0x7f04002f;
+        public static final int top_bar_stroke_1=0x7f04002b;
+        public static final int top_bar_stroke_2=0x7f04002c;
     }
     public static final class dimen {
         public static final int air_switch_button_height=0x7f09000f;
@@ -137,40 +138,41 @@ public final class R {
         public static final int button_emboss_right_default=0x7f020006;
         public static final int button_emboss_right_pressed=0x7f020007;
         public static final int button_emboss_right_selector=0x7f020008;
-        public static final int captured_bb=0x7f020009;
-        public static final int captured_bk=0x7f02000a;
-        public static final int captured_bn=0x7f02000b;
-        public static final int captured_bp=0x7f02000c;
-        public static final int captured_bq=0x7f02000d;
-        public static final int captured_br=0x7f02000e;
-        public static final int captured_wb=0x7f02000f;
-        public static final int captured_wk=0x7f020010;
-        public static final int captured_wn=0x7f020011;
-        public static final int captured_wp=0x7f020012;
-        public static final int captured_wq=0x7f020013;
-        public static final int captured_wr=0x7f020014;
-        public static final int ic_action_done=0x7f020015;
-        public static final int ic_add=0x7f020016;
-        public static final int ic_analysis=0x7f020017;
-        public static final int ic_back=0x7f020018;
-        public static final int ic_chat=0x7f020019;
-        public static final int ic_chat_nm=0x7f02001a;
-        public static final int ic_fastforward=0x7f02001b;
-        public static final int ic_flip=0x7f02001c;
-        public static final int ic_forward=0x7f02001d;
-        public static final int ic_help=0x7f02001e;
-        public static final int ic_hint=0x7f02001f;
-        public static final int ic_options=0x7f020020;
-        public static final int ic_search=0x7f020021;
-        public static final int ic_share=0x7f020022;
-        public static final int shifted_image=0x7f020023;
-        public static final int tap_1=0x7f020024;
-        public static final int tap_2=0x7f020025;
-        public static final int tap_3=0x7f020026;
-        public static final int tap_4=0x7f020027;
-        public static final int tap_5=0x7f020028;
-        public static final int tap_6=0x7f020029;
-        public static final int wp_six=0x7f02002a;
+        public static final int button_orange=0x7f020009;
+        public static final int captured_bb=0x7f02000a;
+        public static final int captured_bk=0x7f02000b;
+        public static final int captured_bn=0x7f02000c;
+        public static final int captured_bp=0x7f02000d;
+        public static final int captured_bq=0x7f02000e;
+        public static final int captured_br=0x7f02000f;
+        public static final int captured_wb=0x7f020010;
+        public static final int captured_wk=0x7f020011;
+        public static final int captured_wn=0x7f020012;
+        public static final int captured_wp=0x7f020013;
+        public static final int captured_wq=0x7f020014;
+        public static final int captured_wr=0x7f020015;
+        public static final int ic_action_done=0x7f020016;
+        public static final int ic_add=0x7f020017;
+        public static final int ic_analysis=0x7f020018;
+        public static final int ic_back=0x7f020019;
+        public static final int ic_chat=0x7f02001a;
+        public static final int ic_chat_nm=0x7f02001b;
+        public static final int ic_fastforward=0x7f02001c;
+        public static final int ic_flip=0x7f02001d;
+        public static final int ic_forward=0x7f02001e;
+        public static final int ic_help=0x7f02001f;
+        public static final int ic_hint=0x7f020020;
+        public static final int ic_options=0x7f020021;
+        public static final int ic_search=0x7f020022;
+        public static final int ic_share=0x7f020023;
+        public static final int shifted_image=0x7f020024;
+        public static final int tap_1=0x7f020025;
+        public static final int tap_2=0x7f020026;
+        public static final int tap_3=0x7f020027;
+        public static final int tap_4=0x7f020028;
+        public static final int tap_5=0x7f020029;
+        public static final int tap_6=0x7f02002a;
+        public static final int wp_six=0x7f02002b;
     }
     public static final class id {
         public static final int addBtn=0x7f060013;
