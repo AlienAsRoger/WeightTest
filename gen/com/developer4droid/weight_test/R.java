@@ -114,13 +114,13 @@ public final class R {
         public static final int air_switch_button_height=0x7f09000f;
         public static final int blue_bar_button_height=0x7f090005;
         public static final int blue_button_big_height=0x7f090003;
-        public static final int blue_button_height=0x7f090002;
         public static final int blue_button_min_width=0x7f090004;
         public static final int blue_button_padding_def_bottom=0x7f090009;
         public static final int blue_button_padding_def_left=0x7f090007;
         public static final int blue_button_padding_def_right=0x7f090008;
         public static final int blue_button_padding_def_top=0x7f090006;
         public static final int default_stroke_width=0x7f09000e;
+        public static final int toggle_button_height=0x7f090002;
         public static final int toggle_button_padding_bottom=0x7f09000d;
         public static final int toggle_button_padding_left=0x7f09000a;
         public static final int toggle_button_padding_right=0x7f09000b;
